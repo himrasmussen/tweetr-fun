@@ -2,7 +2,7 @@
 
 import time
 from sys import exit, argv
-
+print("starting")
 try:
     from tweepy import Stream, OAuthHandler
     from tweepy.streaming import StreamListener
@@ -27,7 +27,6 @@ class listener(StreamListener):
             blink_blinkt(color)
             #print(color)
         else:
-            print(common_hashtags)
             blink_blinkt(hash_color_dict[''.join(common_hashtags)])
             #print(hash_color_dict[''.join(common_hashtags)])
         return True
@@ -43,7 +42,7 @@ def blink_blinkt(rgb_tuple):
         with open("log.txt", "a") as f:
             f.write(e + "\n")
 
-    set_brightness(0.05)  
+    set_brightness(1)  
     show()
     time.sleep(0.2)
     clear()
