@@ -36,7 +36,13 @@ class listener(StreamListener):
         print (status)
 
 def blink_blinkt(rgb_tuple):
-    set_all(*rgb_tuple)
+    try:
+        set_all(*rgb_tuple)
+    except Exception as e:
+        set_all(255,255,255)
+        with open("log.txt", "a") as f:
+            f.write(e + "\n")
+
     set_brightness(0.05)  
     show()
     time.sleep(0.2)
