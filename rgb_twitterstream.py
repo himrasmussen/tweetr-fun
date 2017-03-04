@@ -27,6 +27,7 @@ class listener(StreamListener):
             blink_blinkt(color)
             #print(color)
         else:
+            print(common_hashtags)
             blink_blinkt(hash_color_dict[''.join(common_hashtags)])
             #print(hash_color_dict[''.join(common_hashtags)])
         return True
@@ -56,7 +57,7 @@ twitterstream = Stream(auth, listener())
 
 hash_color_dict={
                     "#infosec":(255,0,255),
-                    "#python":(255,255)
+                    "#python":(255,255,0)
                     }
 
 twitterstream.filter(track=[hashtag for hashtag in hash_color_dict.keys()])
